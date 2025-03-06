@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книги и авторы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Добавить автора</h1>
+        <form id="authorForm">
+            <input type="text" id="authorName" placeholder="Имя автора" required>
+            <button type="submit">Добавить автора</button>
+        </form>
+
+        <h1>Добавить книгу</h1>
+        <form id="bookForm">
+            <input type="text" id="bookTitle" placeholder="Название книги" required>
+            <select id="authorSelect" required>
+                <option value="">Выберите автора</option>
+            </select>
+            <button type="submit">Добавить книгу</button>
+        </form>
+
+        <h1>Список авторов и книг</h1>
+        <ul id="authorList"></ul>
+    </div>
+
+    <script>
+        async function fetchAuthors() {
+            const response = await fetch('/api/authors/');
+            const authors = await response.json();
+            const authorSelect = document.getElementById('authorSelect');
+            authorSelect.innerHTML = '<option value="">Выберите автора</option>';
+            authors.forEach(author => {
+                const option = document.createElement('option');
+                option.value = author.id;
+                option.textContent = author.name;
+                authorSelect.appendChild(option);
+            });
+        }
+
+        async function fetchBooks() {
+            const response = await fetch('/api/books/');
+            const books = await response.json();
+            const authorList = document.getElementById('authorList');
+            authorList.innerHTML = '';
+            const authorsMap = {};
+            books.forEach(book => {
+                if (!authorsMap[book.author]) {
+                    authorsMap[book.author] = [];
+                }
+                authorsMap[book.author].push(book.title);
+            });
+            for (const [authorId, books] of Object.entries(authorsMap)) {
+                const authorResponse = await fetch(`/api/authors/${authorId}/`);
+                const author = await authorResponse.json();
+                const li = document.createElement('li');
+                li.textContent = `${author.name}: ${books.join(', ')}`;
+                authorList.appendChild(li);
+            }
+        }
+
+        document.getElementById('authorForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const authorName = document.getElementById('authorName').value;
+            await fetch('/api/authors/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: authorName }),
+            });
+            document.getElementById('authorName').value = '';
+            fetchAuthors();
+            fetchBooks();
+        });
+
+        document.getElementById('bookForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const bookTitle = document.getElementById('bookTitle').value;
+            const authorId = document.getElementById('authorSelect').value;
+            await fetch('/api/books/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ title: bookTitle, author: authorId }),
+            });
+            document.getElementById('bookTitle').value = '';
+            fetchBooks();
+        });
+
+        fetchAuthors();
+        fetchBooks();
+    </script>
+</body>
+</html>
