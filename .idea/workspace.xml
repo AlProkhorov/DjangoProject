@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7011702b-15f3-4572-b829-b3905665f1e6" name="Changes" comment="v1 server">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/myapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/myapp/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="7011702b-15f3-4572-b829-b3905665f1e6" name="Changes" comment="v1 server" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +21,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/AlProkhorov/DjangoProject.git",
+    "accountId": "8863f5e8-c20c-4e84-a7f3-a8053d106f4a"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 8
 }]]></component>
@@ -88,7 +91,55 @@
       <option name="project" value="LOCAL" />
       <updated>1741266632080</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="v1 server">
+      <option name="closed" value="true" />
+      <created>1741354063986</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741354063986</updated>
+    </task>
+    <task id="LOCAL-00003" summary="v1 server">
+      <option name="closed" value="true" />
+      <created>1741354070186</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741354070186</updated>
+    </task>
+    <task id="LOCAL-00004" summary="v1 server">
+      <option name="closed" value="true" />
+      <created>1741354141947</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741354141947</updated>
+    </task>
+    <task id="LOCAL-00005" summary="v1 server">
+      <option name="closed" value="true" />
+      <created>1741354201184</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741354201185</updated>
+    </task>
+    <task id="LOCAL-00006" summary="v1 server">
+      <option name="closed" value="true" />
+      <created>1741354276373</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1741354276373</updated>
+    </task>
+    <task id="LOCAL-00007" summary="v1 server">
+      <option name="closed" value="true" />
+      <created>1741354405915</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1741354405915</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
